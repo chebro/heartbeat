@@ -1,0 +1,56 @@
+@font-face {
+	font-family: 'Menlo Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Menlo Regular'), url('/assets/fonts/Menlo-Regular.woff2') format('woff2');
+}
+
+body {
+	font-family: 'Menlo Regular';
+	text-align: center;
+	margin: 5rem auto;
+	max-width: 40rem;
+	padding: 1rem;
+}
+
+pre {
+	font-family:'Menlo Regular';
+	font-weight:normal;
+}
+
+.stats {
+	display: flex;
+}
+
+table {
+	margin: 2rem auto;
+    padding: 0.5rem;
+	border-spacing: 0;
+    border-bottom: 1px solid black;
+}
+
+table tr .head {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+table tr .right {
+    padding: 0.5rem;
+	text-align: right;
+}
+
+table tr .left {
+    padding: 0.5rem;
+	text-align: left;
+}
+
+ol {
+  list-style-position: inside;
+  display: inline-block;
+  text-align: left;
+  padding: 0;
+}
+
+ol li {
+	padding: 0.5rem 0;
+}

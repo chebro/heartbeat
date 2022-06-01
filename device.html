@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div>
+			<h1>{{.Hostname}}</h1>
+
+			<table>
+				<tr>
+					<td class="right head"><strong>stat</strong></td>
+					<td class="left head"><strong>info</strong></td>
+				</tr>
+				<tr class="odd">
+					<td class="right"><strong>platform</strong></td>
+					<td class="left">{{.Platform}}</td>
+				</tr>
+				<tr class="even">
+					<td class="right"><strong>release</strong></td>
+					<td class="left"> {{.Release}}</td>
+				</tr>
+				<tr class="odd">
+					<td class="right"><strong>arch</strong></td>
+					<td class="left">{{.Arch}}</td>
+				</tr>
+				<tr class="even">
+					<td class="right"><strong>uptime</strong></td>
+					<td class="left">{{.Uptime}}</td>
+				</tr>
+			</table>
+
+			<p>stats for {{.Hostname}} were last updated at {{.Timestamp}}</p>
+		</div>
+	</body>
+</html>
