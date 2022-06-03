@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"net/http"
 	"regexp"
+	"sort"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -43,6 +44,7 @@ func handleGetHome(w http.ResponseWriter, r *http.Request) {
 		device.Graph = g
 		devices = append(devices, device)
 	}
+	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
 	t, _ := template.ParseFiles("index.html")
 	t.Execute(w, devices)
 }
