@@ -9,8 +9,8 @@ func router() *chi.Mux {
 	r.Route("/", func(r chi.Router) {
 		r.Get("/", handleGetHome)
 	})
-	r.Route("/api/devices/", func(r chi.Router) {
-		r.Post("/", handlePostDevices)
+	r.Route("/api", func(r chi.Router) {
+		r.Post("/devices", handlePostDevices)
 	})
 	r.Route("/devices/{id}", func(r chi.Router) {
 		r.Get("/", handleGetDevices)
