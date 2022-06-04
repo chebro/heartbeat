@@ -36,7 +36,7 @@ func handleGetHome(w http.ResponseWriter, r *http.Request) {
 					graph = append(graph, make([]float64, len(graph)-30)...)
 				}
 			}
-			g = asciigraph.Plot(graph, asciigraph.Precision(0), asciigraph.Height(1))
+			g = asciigraph.Plot(graph, asciigraph.Precision(0), asciigraph.Height(2))
 			reg := regexp.MustCompile("[0-9]")
 			g = reg.ReplaceAllString(g, "")
 			g = strings.ReplaceAll(g, "  ┼", "")
