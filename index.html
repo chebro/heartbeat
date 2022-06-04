@@ -10,15 +10,25 @@
 		<div>
 			<h1><u>system status</u></h1>
 			<p>this site tracks devices listed below and reports basic status info every minute</p>
-			<p>this webpage is currently serving revision [<a href="https://github.com/chebro/systat/commit">commit</a>] of [<a href="https://github.com/chebro/systat">systat</a>]</p>
+			<p>currently serving revision [<a href="https://github.com/chebro/systat/commit">commit</a>] of [<a href="https://github.com/chebro/systat">systat</a>]</p>
 			<ol>
 				{{ range . }}
 					<li>[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
-					<pre>{{.Graph}}</pre>
+<pre>
+{{.Graph}}
+</pre>
 					</li>
 				{{end}}
 			</ol>
-			<p><sup>*</sup>graphs depict host pings over the last 30 minutes</p>
+			<p><sup>*</sup>graphs depict host pings over the last 15 minutes (approx.)</p>
+			<div class="info">
+<pre>
+ ╭╮ 
+ ╯╰ 
+</pre> 
+<div>represents one ping</div>
+			</div>
+			</p>
 			</div>
 		</div>
 	</body>

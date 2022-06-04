@@ -54,3 +54,13 @@ ol {
 ol li {
 	padding: 0.5rem 0;
 }
+
+.info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.info pre {
+	margin: 0;
+}
