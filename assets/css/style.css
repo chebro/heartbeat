@@ -1,12 +1,13 @@
 @font-face {
-	font-family: 'Menlo Regular';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Menlo Regular'), url('/assets/fonts/Menlo-Regular.woff2') format('woff2');
+    font-family: 'Iosevka Webfont';
+    src: url('/assets/fonts/IosevkaNerdFontComplete.woff2') format('woff2'),
+         url('/assets/fonts/IosevkaNerdFontComplete.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-	font-family: 'Menlo Regular';
+	font-family: 'Iosevka Webfont';
 	text-align: center;
 	margin: 5rem auto;
 	max-width: 40rem;
@@ -14,8 +15,8 @@ body {
 }
 
 pre {
-	font-family:'Menlo Regular';
-	font-weight:normal;
+	font-family:'Iosevka Webfont';
+	line-height: 1.25;
 }
 
 .stats {
