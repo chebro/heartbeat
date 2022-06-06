@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div>
+			<h2>delete devices</h2>
+			<ol>
+				{{ range . }}
+					<li id="{{.Hostname}}">[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
+						<!-- <p class="delete">[<a href title="delete" onclick="deleteDevice({{.Hostname}}); return false">delete</a>]</p> -->
+						<button class="delete" href title="delete" onclick="deleteDevice({{.Hostname}}); return false">delete</button>
+					</li>
+				{{end}}
+			</ol>
+		</div>
+		<script src="/assets/js/script.js"></script>
+	</body>
+</html>

@@ -65,3 +65,13 @@ ol li {
 .info pre {
 	margin: 0;
 }
+
+.delete {
+	cursor: pointer;
+	float: right;
+	margin-left: 5rem;
+}
+
+button {
+	font-family: 'Iosevka Webfont'
+}

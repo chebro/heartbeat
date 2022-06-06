@@ -86,7 +86,7 @@ func handlePostDevices(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
-func handleGetDevices(w http.ResponseWriter, r *http.Request) {
+func handleGetDevice(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	deviceInfo, ok := devicesMap[id]
 	if ok {
@@ -95,6 +95,25 @@ func handleGetDevices(w http.ResponseWriter, r *http.Request) {
 	} else {
 		http.Error(w, "404 page not found", 404)
 	}
+}
+
+func handleDeleteDevice(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	delete(devicesMap, id)
+	w.WriteHeader(http.StatusNoContent)
+}
+
+func handleGetEdit(w http.ResponseWriter, r *http.Request) {
+	var devices []Device
+	var device Device
+	for k := range devicesMap {
+		device.Hostname = k
+		device.Timestamp = devicesMap[k].Timestamp
+		devices = append(devices, device)
+	}
+	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
+	t, _ := template.ParseFiles("edit.html")
+	t.Execute(w, devices)
 }
 
 /*

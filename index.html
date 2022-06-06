@@ -13,20 +13,18 @@
 			<p>currently serving revision [<a href="https://github.com/chebro/systat/commit">commit</a>] of [<a href="https://github.com/chebro/systat">systat</a>]</p>
 			<ol>
 				{{ range . }}
-					<li>[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
-<pre>
-{{.Graph}}
-</pre>
+					<li id="{{.Hostname}}">[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
+						<pre>{{.Graph}}</pre>
 					</li>
 				{{end}}
 			</ol>
-			<p><sup>*</sup>graphs depict host pings over the last 15 minutes (approx.)</p>
+			<p>*graphs depict host pings over the last 15 minutes (approx.)</p>
 			<div class="info">
 <pre>
  ╭╮ 
  ╯╰ 
-</pre> 
-<div>represents one ping</div>
+</pre>			
+				<div>represents one ping</div>
 			</div>
 			</p>
 			</div>
