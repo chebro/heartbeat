@@ -10,11 +10,4 @@ type DeviceStatsModel struct {
 	Graph     []float64 `json:"graph"`
 }
 
-//type DevicesModel struct {
-//	Name string
-//	Info DeviceStatsModel
-//}
-//var devices []DevicesModel
-
-var deviceStats DeviceStatsModel
 var devicesMap = make(map[string]DeviceStatsModel)

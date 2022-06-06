@@ -53,6 +53,7 @@ func handleGetHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handlePostDevices(w http.ResponseWriter, r *http.Request) {
+	var deviceStats DeviceStatsModel
 	err := json.NewDecoder(r.Body).Decode(&deviceStats)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
