@@ -79,27 +79,12 @@ func handleDeleteDevice(w http.ResponseWriter, r *http.Request) {
 
 func handleGetEdit(w http.ResponseWriter, r *http.Request) {
 	var devices []Device
-	var device Device
 	for k := range devicesMap {
-		device.Hostname = k
-		device.Timestamp = devicesMap[k].Timestamp
-		devices = append(devices, device)
+		devices = append(devices, Device{
+			Hostname: k,
+		})
 	}
 	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
 	t, _ := template.ParseFiles("edit.html")
 	t.Execute(w, devices)
 }
-
-/*
-func handleDeviceNotFound(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		id := chi.URLParam(r, "id")
-		_, ok := devicesMap[id]
-		if !ok {
-			http.Error(w, "404 page not found", 404)
-			return
-		}
-		next.ServeHTTP(w, r)
-	})
-}
-*/
