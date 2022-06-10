@@ -88,13 +88,11 @@ func handleDeleteDevice(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleGetEdit(w http.ResponseWriter, r *http.Request) {
-	var devices []Device
+	var devices []string
 	for k := range devicesMap {
-		devices = append(devices, Device{
-			Hostname: k,
-		})
+		devices = append(devices, k)
 	}
-	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
+	sort.Slice(devices, func(i, j int) bool { return devices[i] < devices[j] })
 	t, _ := template.ParseFiles("edit.html")
 	t.Execute(w, devices)
 }

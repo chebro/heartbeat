@@ -11,9 +11,8 @@
 			<h2>delete devices</h2>
 			<ol>
 				{{ range . }}
-					<li id="{{.Hostname}}">[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
-						<!-- <p class="delete">[<a href title="delete" onclick="deleteDevice({{.Hostname}}); return false">delete</a>]</p> -->
-						<button class="delete" href title="delete" onclick="deleteDevice({{.Hostname}}); return false">delete</button>
+					<li id="{{ . }}">[<a href="/devices/{{ . }}">{{ . }}</a>]
+						<button class="delete" href title="delete" onclick="deleteDevice({{ . }}); return false">delete</button>
 					</li>
 				{{end}}
 			</ol>
