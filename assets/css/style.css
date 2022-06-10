@@ -1,13 +1,13 @@
 @font-face {
-    font-family: 'Iosevka Webfont';
-    src: url('/assets/fonts/IosevkaNerdFontComplete.woff2') format('woff2'),
-         url('/assets/fonts/IosevkaNerdFontComplete.woff') format('woff');
+    font-family: 'Iosevka Minified';
+    src: url('/assets/fonts/IosevkaMinified.woff2') format('woff2'),
+         url('/assets/fonts/IosevkaMinified.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-	font-family: 'Iosevka Webfont';
+	font-family: 'Iosevka Minified';
 	text-align: center;
 	margin: 5rem auto;
 	max-width: 40rem;
@@ -15,7 +15,7 @@ body {
 }
 
 pre {
-	font-family:'Iosevka Webfont';
+	font-family:'Iosevka Minified';
 	line-height: 1.25;
 }
 
@@ -73,5 +73,5 @@ ol li {
 }
 
 button {
-	font-family: 'Iosevka Webfont'
+	font-family: 'Iosevka Minified'
 }
