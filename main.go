@@ -32,8 +32,10 @@ func (nfs neuteredFilesystem) Open(name string) (http.File, error) {
 
 func main() {
 	http.Handle("/", router())
-	http.Handle("/assets/", http.StripPrefix("/assets/",
-		http.FileServer(neuteredFilesystem{http.Dir("assets")})))
+
+	static := http.FileServer(neuteredFilesystem{http.Dir("assets")})
+	http.Handle("/assets/", http.StripPrefix("/assets/", static))
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
