@@ -10,9 +10,9 @@
 		<div>
 			<h2>system status</h2>
 			<p>this site tracks devices listed below and reports basic status info every minute</p>
-			<p>currently serving revision [<a href="https://github.com/chebro/systat/commit">commit</a>] of [<a href="https://github.com/chebro/systat">systat</a>]</p>
+			<p>currently serving revison [<a href="https://github.com/chebro/systat/tree/{{.Version}}">{{.Version}}</a>] of [<a href="https://github.com/chebro/systat">systat</a>]</p>
 			<ol>
-				{{ range . }}
+				{{ range .Devices }}
 					<li id="{{.Hostname}}">[<a href="/devices/{{.Hostname}}">{{.Hostname}}</a>]
 						<pre>{{.Graph}}</pre>
 					</li>

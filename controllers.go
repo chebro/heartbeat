@@ -15,6 +15,13 @@ type Device struct {
 	Graph    string
 }
 
+type Overview struct {
+	Devices []Device
+	Version string
+}
+
+var gitCommitHash string
+
 func handleGetHome(w http.ResponseWriter, r *http.Request) {
 	var devices []Device
 	for k := range devicesMap {
@@ -30,7 +37,10 @@ func handleGetHome(w http.ResponseWriter, r *http.Request) {
 	}
 	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
 	t, _ := template.ParseFiles("index.html")
-	t.Execute(w, devices)
+	t.Execute(w, Overview{
+		devices,
+		gitCommitHash,
+	})
 }
 
 func handlePostDevices(w http.ResponseWriter, r *http.Request) {
