@@ -19,7 +19,7 @@ func createDevice(id string) DeviceStatsModel {
 
 func updateGraph(diff int64, graph []float64) []float64 {
 	if diff < 30 {
-		graph = append(graph, make([]float64, diff+1)...)
+		graph = append(graph, make([]float64, diff)...)
 		graph = graph[(len(graph) - 30):]
 	} else {
 		graph = make([]float64, 30)

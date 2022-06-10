@@ -51,7 +51,7 @@ func handlePostDevices(w http.ResponseWriter, r *http.Request) {
 
 	newStats.Timestamp = time.Now().Unix()
 	diff := (newStats.Timestamp - oldStats.Timestamp) / 60
-	newStats.Graph = updateGraph(diff, oldStats.Graph)
+	newStats.Graph = updateGraph(diff+1, oldStats.Graph)
 	newStats.Graph[29] = 1
 
 	devicesMap[id] = newStats
