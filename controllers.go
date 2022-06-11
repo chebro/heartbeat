@@ -21,6 +21,7 @@ type Overview struct {
 }
 
 var gitCommitHash string
+var templates = template.Must(template.ParseFiles("index.html", "device.html", "edit.html"))
 
 func handleGetHome(w http.ResponseWriter, r *http.Request) {
 	var devices []Device
@@ -36,8 +37,7 @@ func handleGetHome(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 	sort.Slice(devices, func(i, j int) bool { return devices[i].Hostname < devices[j].Hostname })
-	t, _ := template.ParseFiles("index.html")
-	t.Execute(w, Overview{
+	renderTemplate(w, "index.html", Overview{
 		devices,
 		gitCommitHash,
 	})
@@ -74,8 +74,7 @@ func handleGetDevice(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	deviceInfo, ok := devicesMap[id]
 	if ok {
-		t, _ := template.ParseFiles("device.html")
-		t.Execute(w, deviceInfo)
+		renderTemplate(w, "device.html", deviceInfo)
 	} else {
 		http.Error(w, "404 page not found", 404)
 	}
@@ -93,6 +92,5 @@ func handleGetEdit(w http.ResponseWriter, r *http.Request) {
 		devices = append(devices, k)
 	}
 	sort.Slice(devices, func(i, j int) bool { return devices[i] < devices[j] })
-	t, _ := template.ParseFiles("edit.html")
-	t.Execute(w, devices)
+	renderTemplate(w, "edit.html", devices)
 }

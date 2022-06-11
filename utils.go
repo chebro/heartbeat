@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	"regexp"
 	"strings"
 	"time"
@@ -15,6 +16,13 @@ func createDevice(id string) DeviceStatsModel {
 		Graph:     make([]float64, 30),
 	}
 	return devicesMap[id]
+}
+
+func renderTemplate(w http.ResponseWriter, name string, data any) {
+	err := templates.ExecuteTemplate(w, name, data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 func updateGraph(diff int64, graph []float64) []float64 {
